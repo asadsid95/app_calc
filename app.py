@@ -15,6 +15,21 @@ def b_click(number):
     input.insert(0, str(current) + str(number))
     return
 
+def b_clear():
+    input.delete(0, END)
+
+def b_add():
+    first = input.get()
+    global first_num
+    first_num = int(first)
+    input.delete(0, END)
+
+def b_equal():
+    second = input.get()
+    input.delete(0, END)
+    # final = 
+    input.insert(0, first_num + int(second))
+
 # 0-9 digits' buttons; use of lambda func (takes many argument but has one expression)
 button1 = Button(root, text="1",padx=30, pady=20,command=lambda: b_click(1))
 button2 = Button(root, text="2",padx=30, pady=20,command=lambda: b_click(2))
@@ -28,9 +43,9 @@ button9 = Button(root, text="9",padx=30, pady=20,command=lambda: b_click(9))
 button0 = Button(root, text="0",padx=30, pady=20,command=lambda: b_click(0))
 
 # operations' buttons
-button_clear = Button(root, text="Clear", padx = 20, pady=20)
-button_add = Button(root, text="+", padx = 70, pady=20)
-button_equal = Button(root, text="=", padx = 70, pady=20)
+button_clear = Button(root, text="Clear", padx = 20, pady=20, command=b_clear)
+button_add = Button(root, text="+", padx = 70, pady=20, command=b_add)
+button_equal = Button(root, text="=", padx = 70, pady=20, command=b_equal)
 
 #adding buttons to screen
 
