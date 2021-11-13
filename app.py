@@ -9,23 +9,26 @@ input = Entry(root, width=30)
 input.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 
 def b_click(number):
-    
+    # interesting method: assign input's value so far to a variable -> clear out input's value (since it's been saved -> save to input the old + new value
+    current = input.get()
+    input.delete(0, END)
+    input.insert(0, str(current) + str(number))
     return
 
-# 0-9 digits' buttons
-button1 = Button(root, text="1",padx=30, pady=20,command=b_click)
-button2 = Button(root, text="2",padx=30, pady=20,command=b_click)
-button3 = Button(root, text="3",padx=30, pady=20,command=b_click)
-button4 = Button(root, text="4",padx=30, pady=20,command=b_click)
-button5 = Button(root, text="5",padx=30, pady=20,command=b_click)
-button6 = Button(root, text="6",padx=30, pady=20,command=b_click)
-button7 = Button(root, text="7",padx=30, pady=20,command=b_click)
-button8 = Button(root, text="8",padx=30, pady=20,command=b_click)
-button9 = Button(root, text="9",padx=30, pady=20,command=b_click)
-button0 = Button(root, text="0",padx=30, pady=20,command=b_click)
+# 0-9 digits' buttons; use of lambda func (takes many argument but has one expression)
+button1 = Button(root, text="1",padx=30, pady=20,command=lambda: b_click(1))
+button2 = Button(root, text="2",padx=30, pady=20,command=lambda: b_click(2))
+button3 = Button(root, text="3",padx=30, pady=20,command=lambda: b_click(3))
+button4 = Button(root, text="4",padx=30, pady=20,command=lambda: b_click(4))
+button5 = Button(root, text="5",padx=30, pady=20,command=lambda: b_click(5))
+button6 = Button(root, text="6",padx=30, pady=20,command=lambda: b_click(6))
+button7 = Button(root, text="7",padx=30, pady=20,command=lambda: b_click(7))
+button8 = Button(root, text="8",padx=30, pady=20,command=lambda: b_click(8))
+button9 = Button(root, text="9",padx=30, pady=20,command=lambda: b_click(9))
+button0 = Button(root, text="0",padx=30, pady=20,command=lambda: b_click(0))
 
 # operations' buttons
-button_clear = Button(root, text="Clear", padx = 19, pady=20)
+button_clear = Button(root, text="Clear", padx = 20, pady=20)
 button_add = Button(root, text="+", padx = 70, pady=20)
 button_equal = Button(root, text="=", padx = 70, pady=20)
 
