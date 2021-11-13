@@ -21,14 +21,46 @@ def b_clear():
 def b_add():
     first = input.get()
     global first_num
+    global math
+    math = 'add'
     first_num = int(first)
     input.delete(0, END)
 
 def b_equal():
     second = input.get()
     input.delete(0, END)
-    # final = 
-    input.insert(0, first_num + int(second))
+    if math == 'add':
+        input.insert(0, first_num + int(second))
+    if math == 'subtract':
+        input.insert(0, first_num - int(second))
+    if math == 'multiply':
+        input.insert(0, first_num * int(second))
+    if math == 'divide':
+        input.insert(0, first_num / int(second))
+
+def b_subtract():
+    first = input.get()
+    global first_num
+    global math
+    math = 'subtract'
+    first_num = int(first)
+    input.delete(0, END)
+
+def b_multiply():
+    first = input.get()
+    global first_num
+    global math
+    math = 'multiply'
+    first_num = int(first)
+    input.delete(0, END)
+
+def b_divide():
+    first = input.get()
+    global first_num
+    global math
+    math = 'divide'
+    first_num = int(first)
+    input.delete(0, END)
 
 # 0-9 digits' buttons; use of lambda func (takes many argument but has one expression)
 button1 = Button(root, text="1",padx=30, pady=20,command=lambda: b_click(1))
@@ -43,9 +75,12 @@ button9 = Button(root, text="9",padx=30, pady=20,command=lambda: b_click(9))
 button0 = Button(root, text="0",padx=30, pady=20,command=lambda: b_click(0))
 
 # operations' buttons
-button_clear = Button(root, text="Clear", padx = 20, pady=20, command=b_clear)
-button_add = Button(root, text="+", padx = 70, pady=20, command=b_add)
-button_equal = Button(root, text="=", padx = 70, pady=20, command=b_equal)
+button_clear = Button(root, text="Clear", padx = 19, pady=20, command=b_clear, background='gray')
+button_add = Button(root, text="+", padx = 67, pady=20, command=b_add)
+button_equal = Button(root, text="=", padx = 67, pady=20, command=b_equal)
+button_subtract = Button(root, text="-", padx = 30, pady=20, command=b_subtract)
+button_multiply = Button(root, text="*", padx = 30, pady=20, command=b_multiply)
+button_divide = Button(root, text="/", padx = 30, pady=20, command=b_divide)
 
 #adding buttons to screen
 
@@ -68,6 +103,8 @@ button_equal.grid(row=4, column=1, columnspan=2)
 button_clear.grid(row=5, column=0)
 button_add.grid(row=5, column=1, columnspan=2)
 
-
+button_subtract.grid(row=6, column=0)
+button_multiply.grid(row=6, column=1)
+button_divide.grid(row=6, column=2)
 
 root.mainloop()
